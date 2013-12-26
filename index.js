@@ -1,4 +1,4 @@
-var element = require('dom-element');
+var element = require('domy-element');
 
 var children = function (el) {
   return element(el).children;
