@@ -10,7 +10,7 @@ test('returns children of string DOM element', function (t) {
 });
 
 test('returns the number of children', function (t) {
-  var c = children('<div><span class="child1"></span><span class="child2"></span></div>');
+  var c = domify('<div><span class="child1"></span><span class="child2"></span></div>');
   
   t.ok(children.count(c) === 2);
   t.end();

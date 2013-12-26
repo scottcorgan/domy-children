@@ -4,8 +4,8 @@ var children = function (el) {
   return element(el).children;
 };
 
-children.count = function (ch) {
-  return ch.length;
+children.count = function (el) {
+  return children(el).length;
 };
 
 children.first = function (el) {
