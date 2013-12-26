@@ -9,4 +9,9 @@ children.last = function (el) {
   return domEl.childNodes[domEl.childNodes.length - 1];
 };
 
+children.at = function (el, n) {
+  var domEl = element(el);
+  return domEl.childNodes[n];
+};
+
 module.exports = children;
