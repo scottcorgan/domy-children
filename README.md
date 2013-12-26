@@ -15,7 +15,7 @@ npm install domy-children --save
 ## Usage
  
 ```js
-var element = require('dom-element');
+var element = require('domy-element');
 var chidren = require('domy-children');
 
 var el = element('<div><span></span><span></span></div>');
