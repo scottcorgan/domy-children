@@ -26,7 +26,8 @@
     "faucet": "0.0.0"
   },
   "dependencies": {
-    "domify": "~1.1.1"
+    "domify": "~1.1.1",
+    "dom-element": "~0.1.0"
   },
   "testling": {
     "files": [
