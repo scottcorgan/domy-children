@@ -18,8 +18,8 @@ npm install domy-children --save
 var chidren = require('domy-children');
 
 children('<div><span></span><span></span></div>').first();
-children('<div><span></span><span></span></div>').last();
-children('<div><span></span><span></span></div>').at(1);
+children('.parent').last();
+children(document.body).at(1);
 children('<div><span></span><span></span></div>').count();
 ```
  
