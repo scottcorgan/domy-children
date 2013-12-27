@@ -1,44 +1,41 @@
 var element = require('domy-element');
 var toArray = require('to-array');
 
+var childrenMethods = {
+  all: function () {
+    return toArray(this.element.children);
+  },
+
+  count: function () {
+    return this.element.children.length;
+  },
+
+  first: function () {
+    return this.element.firstChild;
+  },
+
+  last: function () {
+    return this.element.childNodes[this.element.childNodes.length - 1];
+  },
+
+  at: function (index) {
+    return this.element.childNodes[index];
+  },
+
+  remove: function (elem) {
+    // TODO: fix element() module to use parent context
+   
+    var self = this;
+    var childs = this.element.querySelectorAll(elem);
+    
+    toArray(childs).forEach(function (child) {
+      self.element.removeChild(child);
+    });
+    
+    return this.element;
+  }
+};
+
 module.exports = function children (elem) {
-  var domEl = element(elem);
-  return new Children(domEl);
-};
-
-var Children = function (elem) {
-  this.element = elem;
-};
-
-Children.prototype.all = function () {
-  return toArray(this.element.children);
-};
-
-Children.prototype.count = function () {
-  return this.element.children.length;
-};
-
-Children.prototype.first = function () {
-  return this.element.firstChild;
-};
-
-Children.prototype.last = function () {
-  return this.element.childNodes[this.element.childNodes.length - 1];
-};
-
-Children.prototype.at = function (index) {
-  return this.element.childNodes[index];
-};
-
-Children.prototype.remove = function (elem) {
-  // TODO: fix element() module to use parent context
-  
-  var self = this;
-  var childs = this.element.querySelectorAll(elem);
-  
-  toArray(childs).forEach(function (child) {
-    self.element.removeChild(child);
-  });
-  
-  return this.element;
+  return element.wrap(elem, childrenMethods);
 };
