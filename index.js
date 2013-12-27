@@ -1,26 +1,29 @@
 var element = require('domy-element');
 
-var children = function (el) {
-  return element(el).children;
+module.exports = function children (elem) {
+  return new Children(element(elem));
 };
 
-children.count = function (el) {
-  return children(el).length;
+var Children = function (elem) {
+  this.element = elem;
 };
 
-children.first = function (el) {
-  var domEl = element(el);
-  return domEl.firstChild;
+Children.prototype.all = function () {
+  return this.element.children;
 };
 
-children.last = function (el) {
-  var domEl = element(el);
-  return domEl.childNodes[domEl.childNodes.length - 1];
+Children.prototype.count = function () {
+  return this.element.children.length;
 };
 
-children.at = function (el, n) {
-  var domEl = element(el);
-  return domEl.childNodes[n];
+Children.prototype.first = function () {
+  return this.element.firstChild;
 };
 
-module.exports = children;
+Children.prototype.last = function () {
+  return this.element.childNodes[this.element.childNodes.length - 1];
+};
+
+Children.prototype.at = function (index) {
+  return this.element.childNodes[index];
+};

@@ -15,47 +15,44 @@ npm install domy-children --save
 ## Usage
  
 ```js
-var element = require('dom-element');
 var chidren = require('domy-children');
 
-var el = element('<div><span></span><span></span></div>');
-
-chidren.first(el)
-chidren.last(el)
-children.at(el, 2);
-children.count(el);
+children('<div><span></span><span></span></div>').first();
+children('<div><span></span><span></span></div>').last();
+children('<div><span></span><span></span></div>').at(1);
+children('<div><span></span><span></span></div>').count();
 ```
  
 ## Methods
 
 ### children(element)
 
-Get a list of child nodes
-
 * `element` - string, css selector, or DOM element
 
-### children.first(element)
+Creates and returns an object with the following methods available:
+
+* `first`
+* `last`
+* `count`
+* `at`
+
+## Instance Methods
+
+### first()
 
 Get the first child node
 
-* `element` - string, css selector, or DOM element
-
-### children.last(element)
+### last()
 
 Get the last child node
 
-* `element` - string, css selector, or DOM element
+### at(index)
 
-### children.at(element, index)
-
-* `element` - string, css selector, or DOM element
 * `index` - index of child node to return
 
-### children.count(element)
+### count(element)
 
 Get number of child nodes
-
-* `element` - string, css selector, or DOM element
 
 ## Run Tests
 
