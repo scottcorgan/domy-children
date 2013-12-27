@@ -1,6 +1,6 @@
 {
   "name": "domy-children",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Manipulate children of DOM elements",
   "main": "index.js",
   "scripts": {
@@ -23,11 +23,12 @@
   "devDependencies": {
     "tape": "~2.3.2",
     "testling": "~1.5.6",
-    "domy-element": "~0.2.0"
+    "domy-element": "0.2.x"
   },
   "dependencies": {
     "domy-element": "0.2.x",
-    "domy": "0.2.x"
+    "domy": "0.2.x",
+    "to-array": "~0.1.4"
   },
   "testling": {
     "files": [

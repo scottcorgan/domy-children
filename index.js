@@ -1,4 +1,5 @@
 var element = require('domy-element');
+var toArray = require('to-array');
 
 module.exports = function children (elem) {
   return new Children(element(elem));
@@ -26,4 +27,17 @@ Children.prototype.last = function () {
 
 Children.prototype.at = function (index) {
   return this.element.childNodes[index];
+};
+
+Children.prototype.remove = function (elem) {
+  // TODO: fix element() module to use parent context
+  
+  var self = this;
+  var childs = this.element.querySelectorAll(elem);
+  
+  toArray(childs).forEach(function (child) {
+    self.element.removeChild(child);
+  });
+  
+  return this.element;
 };

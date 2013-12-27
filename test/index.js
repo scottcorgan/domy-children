@@ -40,3 +40,12 @@ test('returns nth child of DOM element', function (t) {
   t.end();
 });
 
+test('removes child nodes from parent', function (t) {
+  var domEl = element('<div class="parent"><div class="child"></div><div class="child"></div></div>');
+  
+  children(domEl).remove('.child');
+  
+  t.equal(domEl.innerHTML, '');
+  t.end();
+});
+
