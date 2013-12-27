@@ -31,12 +31,19 @@ children('<div><span></span><span></span></div>').count();
 
 Creates and returns an object with the following methods available:
 
+* `remove`
 * `first`
 * `last`
 * `count`
 * `at`
 
 ## Instance Methods
+
+### remove(selector)
+
+Remove all children with the following selector
+
+* `selector` - DOM element or css selector
 
 ### first()
 
@@ -47,6 +54,8 @@ Get the first child node
 Get the last child node
 
 ### at(index)
+
+Get child at index
 
 * `index` - index of child node to return
 
