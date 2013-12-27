@@ -2,7 +2,8 @@ var element = require('domy-element');
 var toArray = require('to-array');
 
 module.exports = function children (elem) {
-  return new Children(element(elem));
+  var domEl = element(elem);
+  return new Children(domEl);
 };
 
 var Children = function (elem) {
@@ -10,7 +11,7 @@ var Children = function (elem) {
 };
 
 Children.prototype.all = function () {
-  return this.element.children;
+  return toArray(this.element.children);
 };
 
 Children.prototype.count = function () {
