@@ -23,10 +23,11 @@ var childrenMethods = {
   },
 
   remove: function (elem) {
-    // TODO: fix element() module to use parent context
-   
     var self = this;
-    var childs = this.element.querySelectorAll(elem);
+    var childs = element(elem, {
+      context: this.element,
+      multiple: true
+    });
     
     toArray(childs).forEach(function (child) {
       self.element.removeChild(child);
