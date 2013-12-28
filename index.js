@@ -1,9 +1,8 @@
 var element = require('domy-element');
-var toArray = require('to-array');
 
 var childrenMethods = {
   all: function () {
-    return toArray(this.element.one().children);
+    return [].slice.call(this.element.one().children, 0);
   },
 
   count: function () {
@@ -27,7 +26,7 @@ var childrenMethods = {
     var el = this.element.one();
     childs = element(this.element.one()).all(elem);
     
-    toArray(childs).forEach(function (child) {
+    [].slice.call(childs, 0).forEach(function (child) {
       el.removeChild(child);
     });
     
