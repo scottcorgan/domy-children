@@ -10,14 +10,14 @@ test('returns children of string DOM element', function (t) {
 });
 
 test('returns the number of children', function (t) {
-  var c = element('<div><span class="child1"></span><span class="child2"></span></div>');
+  var c = element('<div><span class="child1"></span><span class="child2"></span></div>').one();
   
   t.ok(children(c).count() === 2);
   t.end();
 });
 
 test('returns first child of DOM element', function (t) {
-  var domEl = element('<div><span class="child1"></span><span class="child2"></span></div>');
+  var domEl = element('<div><span class="child1"></span><span class="child2"></span></div>').one();
   var firstChild = children(domEl).first();
   
   t.equal(firstChild.className, 'child1');
@@ -25,7 +25,7 @@ test('returns first child of DOM element', function (t) {
 });
 
 test('returns last child of DOM element', function (t) {
-  var domEl = element('<div class="parent"><div class="child1"></div><div class="child2"></div></div>');
+  var domEl = element('<div class="parent"><div class="child1"></div><div class="child2"></div></div>').one();
   var lastChild = children(domEl).last();
   
   t.equal(lastChild.className, 'child2');
@@ -33,7 +33,7 @@ test('returns last child of DOM element', function (t) {
 });
 
 test('returns nth child of DOM element', function (t) {
-  var domEl = element('<div class="parent"><div class="child1"></div><div class="child2"></div><div class="child3"></div></div>');
+  var domEl = element('<div class="parent"><div class="child1"></div><div class="child2"></div><div class="child3"></div></div>').one();
   
   t.equal(children(domEl).at(1).className, 'child2');
   t.equal(children(domEl).at(2).className, 'child3');
@@ -41,7 +41,7 @@ test('returns nth child of DOM element', function (t) {
 });
 
 test('removes child nodes from parent', function (t) {
-  var domEl = element('<div class="parent"><div class="child"></div><div class="child"></div></div>');
+  var domEl = element('<div class="parent"><div class="child"></div><div class="child"></div></div>').one();
   
   children(domEl).remove('.child');
   
